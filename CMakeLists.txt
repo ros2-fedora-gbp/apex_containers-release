@@ -42,11 +42,10 @@ target_compile_options(${PROJECT_NAME}
   PRIVATE $<$<COMPILE_LANGUAGE:CXX>: -Woverloaded-virtual -Wold-style-cast>)
 
 ament_target_dependencies(${PROJECT_NAME}
-    foonathan_memory)
+    foonathan_memory_vendor)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  find_package(ament_cmake_gtest REQUIRED)
 
   ament_lint_auto_find_test_dependencies()
 
@@ -73,7 +72,6 @@ if(BUILD_TESTING)
     COMMAND "$<TARGET_FILE:test_apex_containers_gtest>"
     ENV ${extra_env_vars}
   )
-  ament_target_dependencies(test_apex_containers_gtest)
 endif()
 
 list(APPEND ${PROJECT_NAME}_LIBRARIES
