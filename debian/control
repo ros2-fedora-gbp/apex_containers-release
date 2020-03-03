@@ -1,0 +1,12 @@
+Source: ros-eloquent-apex-containers
+Section: misc
+Priority: optional
+Maintainer: Apex.AI, Inc. <opensource@apex.ai>
+Build-Depends: debhelper (>= 9.0.0), ros-eloquent-ament-cmake, ros-eloquent-ament-cmake-auto, ros-eloquent-ament-lint-auto, ros-eloquent-ament-lint-common, ros-eloquent-foonathan-memory-vendor, ros-eloquent-osrf-testing-tools-cpp, ros-eloquent-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-eloquent-apex-containers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-eloquent-foonathan-memory-vendor, ros-eloquent-ros-workspace
+Description: Containers
