@@ -1,0 +1,12 @@
+Source: ros-foxy-apex-containers
+Section: misc
+Priority: optional
+Maintainer: Apex.AI, Inc. <opensource@apex.ai>
+Build-Depends: debhelper (>= 9.0.0), ros-foxy-ament-cmake, ros-foxy-ament-cmake-auto, ros-foxy-ament-lint-auto, ros-foxy-ament-lint-common, ros-foxy-apex-test-tools, ros-foxy-foonathan-memory-vendor, ros-foxy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-foxy-apex-containers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-foxy-foonathan-memory-vendor, ros-foxy-ros-workspace
+Description: Containers
