@@ -5,11 +5,23 @@ stages:
 
 build:
   stage: build
-  image: osrf/ros:dashing-desktop
-  script:
+  image: osrf/ros:foxy-desktop
+  before_script:
+    - git clone -b master https://gitlab.com/ApexAI/apex_test_tools # Fixme
     - apt-get update
     - rosdep update
-    - rosdep install --from apex_containers --ignore-src -y
+    - rosdep install --from apex_test_tools --ignore-src -y
+    - '
+      colcon build
+          --install-base /opt/ros/foxy
+          --merge-install
+          --cmake-args
+              -DCMAKE_BUILD_TYPE=Release
+          --base-path apex_test_tools
+      '
+    - rm -r build log apex_test_tools
+  script:
+    - rosdep install --from apex_containers --ignore-src -y --skip-keys "apex_test_tools" # Fixme
     - mkdir -p /opt/apex_containers
     - '
       colcon build
@@ -31,9 +43,23 @@ build:
 
 test:
   stage: test
-  image: osrf/ros:dashing-desktop
+  image: osrf/ros:foxy-desktop
   dependencies:
     - build
+  before_script:
+    - apt-get update
+    - git clone -b master https://gitlab.com/ApexAI/apex_test_tools # Fixme
+    - rosdep update
+    - rosdep install --from apex_test_tools --ignore-src -y
+    - '
+      colcon build
+          --install-base /opt/ros/foxy
+          --merge-install
+          --cmake-args
+              -DCMAKE_BUILD_TYPE=Release
+          --base-path apex_test_tools
+      '
+    - rm -r apex_test_tools
   script:
     - tar xf opt.tar.gz -C /
     - '
@@ -41,6 +67,7 @@ test:
           --install-base /opt/apex_containers
           --merge-install
           --base-path apex_containers
+          --packages-select apex_containers
       '
     - 'colcon test-result --verbose'
   artifacts:

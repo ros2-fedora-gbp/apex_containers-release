@@ -45,7 +45,8 @@ TEST(single_allocator, allocate) {
   apex::_vector_impl::single_allocator<int> sa(size);
   test_allocate(sa, size);
 
-  EXPECT_THROW(apex::_vector_impl::single_allocator<int>
+  EXPECT_THROW(
+    apex::_vector_impl::single_allocator<int>
     sa(std::numeric_limits<std::size_t>::max()), std::bad_alloc);
 }
 

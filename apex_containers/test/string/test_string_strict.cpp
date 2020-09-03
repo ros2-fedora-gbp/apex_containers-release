@@ -50,7 +50,8 @@ TEST(string_strict, bad_cases) {
   apex::StringStrict<16U> str;
   EXPECT_THROW(str = big_str.c_str(), std::overflow_error);
 
-  EXPECT_THROW(str =
+  EXPECT_THROW(
+    str =
     str + apex::StringStrict<MAX_APEX_STRING_LEN + 2>(big_str.c_str()), std::overflow_error);
   EXPECT_THROW(str += big_str.c_str(), std::overflow_error);
 }

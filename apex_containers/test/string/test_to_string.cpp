@@ -184,18 +184,21 @@ TEST(string, float_to_string_and_back) {
 
 TEST(string, variadic_template_to_string) {
   // Test a list of various parameters of all possible types
-  apex::string256_t st = apex::varargs_to_string("Parameters:", 1, 2U, 3.0F, "four", 5ULL, 6LL, 7.0,
-      false);
+  apex::string256_t st = apex::varargs_to_string(
+    "Parameters:", 1, 2U, 3.0F, "four", 5ULL, 6LL, 7.0,
+    false);
   EXPECT_STREQ(st.c_str(), "Parameters: 1 2 3.0e+0 four 5 6 7.0e+0 false");
 
   // with characters > 255
-  EXPECT_STREQ(apex::varargs_to_string("Variadic parameters: " \
-    "int32_t min:", -2147483648, "int32_t max:", 2147483647, "uint32_t max:", 4294967295, \
-    "float max:", std::numeric_limits<float32_t>::max(), \
-    "double max:", std::numeric_limits<float64_t>::max(), \
-    "int64_t max:", std::numeric_limits<int64_t>::max(), \
-    "uint64_t max:", std::numeric_limits<uint64_t>::max(), \
-    "string: useless stray test string out of bounds").c_str(),
+  EXPECT_STREQ(
+    apex::varargs_to_string(
+      "Variadic parameters: " \
+      "int32_t min:", -2147483648, "int32_t max:", 2147483647, "uint32_t max:", 4294967295, \
+      "float max:", std::numeric_limits<float32_t>::max(), \
+      "double max:", std::numeric_limits<float64_t>::max(), \
+      "int64_t max:", std::numeric_limits<int64_t>::max(), \
+      "uint64_t max:", std::numeric_limits<uint64_t>::max(), \
+      "string: useless stray test string out of bounds").c_str(),
     "Variadic parameters: " \
     "int32_t min: -2147483648 int32_t max: 2147483647 uint32_t max: 4294967295 " \
     "float max: 3.4028235e+38 " \
@@ -517,7 +520,8 @@ TEST(string, test_std_string_to_string) {
   apex::string256_t lucky = "My lucky number is";
   std::int32_t num = 42;
 
-  ASSERT_STREQ(apex::varargs_to_string(hello, world, exclm, lucky, num).c_str(),
+  ASSERT_STREQ(
+    apex::varargs_to_string(hello, world, exclm, lucky, num).c_str(),
     "Hello world ! My lucky number is 42"
   );
 }

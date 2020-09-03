@@ -46,32 +46,19 @@ ament_target_dependencies(${PROJECT_NAME}
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-
+  find_package(apex_test_tools REQUIRED)
   ament_lint_auto_find_test_dependencies()
 
-  find_package(osrf_testing_tools_cpp REQUIRED)
-  osrf_testing_tools_cpp_require_googletest(VERSION_GTE 1.8)  # ensures target gtest_main exists
-
-  add_executable(test_apex_containers_gtest
-    test/test_main.cpp
-    test/apex_containers/test_shared_ptr.cpp
-    test/apex_containers/test_static_allocators_vectors.cpp
-    test/apex_containers/test_static_allocators_basic.cpp
-    test/apex_containers/test_static_vector_snippets.cpp
-    test/string/test_string.cpp
-    test/string/test_string_strict.cpp
-    test/string/test_to_string.cpp)
-  target_link_libraries(test_apex_containers_gtest
-    ${PROJECT_NAME}
-    gtest_main
-    osrf_testing_tools_cpp::memory_tools
-  )
-  get_target_property(extra_env_vars
-    osrf_testing_tools_cpp::memory_tools LIBRARY_PRELOAD_ENVIRONMENT_VARIABLE)
-  osrf_testing_tools_cpp_add_test(test_apex_containers
-    COMMAND "$<TARGET_FILE:test_apex_containers_gtest>"
-    ENV ${extra_env_vars}
-  )
+  apex_test_tools_add_gtest(test_apex_containers
+      test/test_main.cpp
+      test/apex_containers/test_shared_ptr.cpp
+      test/apex_containers/test_static_allocators_vectors.cpp
+      test/apex_containers/test_static_allocators_basic.cpp
+      test/apex_containers/test_static_vector_snippets.cpp
+      test/string/test_string.cpp
+      test/string/test_string_strict.cpp
+      test/string/test_to_string.cpp)
+  target_link_libraries(test_apex_containers ${PROJECT_NAME})
 endif()
 
 list(APPEND ${PROJECT_NAME}_LIBRARIES

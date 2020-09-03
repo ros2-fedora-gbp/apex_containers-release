@@ -378,10 +378,14 @@ void test_compare_funcs()
   EXPECT_GT(str.compare(2, apex::string8_t::npos, "123", std::string::npos), 0);
   EXPECT_EQ(str.compare(2, apex::string8_t::npos, "123", 0), stl_str.compare(2, 10, "123", 0));
   EXPECT_GT(str.compare(0, apex::string8_t::npos, "1", 1), 0);
-  EXPECT_EQ(str.compare(0, apex::string8_t::npos, "123", 10) > 0, stl_str.compare(0, 10, "123",
-    10) > 0);
-  EXPECT_EQ(str.compare(0, apex::string8_t::npos, "0123", 10) > 0, stl_str.compare(0, 10, "0123",
-    10) > 0);
+  EXPECT_EQ(
+    str.compare(0, apex::string8_t::npos, "123", 10) > 0, stl_str.compare(
+      0, 10, "123",
+      10) > 0);
+  EXPECT_EQ(
+    str.compare(0, apex::string8_t::npos, "0123", 10) > 0, stl_str.compare(
+      0, 10, "0123",
+      10) > 0);
 
   EXPECT_EQ(str.compare("123"), 0);
   EXPECT_GT(str.compare("1"), 0);
@@ -416,8 +420,10 @@ void test_compare_funcs()
   EXPECT_EQ(str.compare(2, apex::string8_t::npos, s123) > 0, stl_str.compare(2, 10, "123", 0) > 0);
   EXPECT_GT(str.compare(0, apex::string8_t::npos, s1), 0);
   EXPECT_EQ(str.compare(0, apex::string8_t::npos, s123), stl_str.compare(0, 10, "123"));
-  EXPECT_EQ(str.compare(0, apex::string8_t::npos, T2("0123")) > 0, stl_str.compare(0, 10,
-    "0123") > 0);
+  EXPECT_EQ(
+    str.compare(0, apex::string8_t::npos, T2("0123")) > 0, stl_str.compare(
+      0, 10,
+      "0123") > 0);
 
   EXPECT_EQ(str.compare(s123), 0);
   EXPECT_GT(str.compare(s1), 0);

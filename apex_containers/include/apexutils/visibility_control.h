@@ -23,7 +23,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 #if defined(APEX_WINDOWS)
-  #define APEXUTILS_PUBLIC_DEPRECATED(msg) __declspec(dllexport) [[deprecatedmsg]]
+  #define APEXUTILS_PUBLIC_DEPRECATED(msg) __declspec(dllexport)[[deprecatedmsg]]
   #if defined(APEXUTILS_BUILDING_DLL) || defined(APEXUTILS_EXPORTS)
     #define APEXUTILS_PUBLIC __declspec(dllexport)
     #define APEXUTILS_LOCAL
