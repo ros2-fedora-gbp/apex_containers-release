@@ -1,0 +1,12 @@
+Source: ros-rolling-apex-containers
+Section: misc
+Priority: optional
+Maintainer: Apex.AI, Inc. <opensource@apex.ai>
+Build-Depends: debhelper (>= 9.0.0), ros-rolling-ament-cmake, ros-rolling-ament-cmake-auto, ros-rolling-ament-lint-auto, ros-rolling-ament-lint-common, ros-rolling-apex-test-tools, ros-rolling-foonathan-memory-vendor, ros-rolling-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-rolling-apex-containers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-rolling-foonathan-memory-vendor, ros-rolling-ros-workspace
+Description: Containers
