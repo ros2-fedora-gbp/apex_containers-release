@@ -1,3 +1,26 @@
+## apex_containers (rolling) - 0.0.4-1
+
+The packages in the `apex_containers` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --ros-distro rolling --track rolling apex_containers` on `Wed, 07 Apr 2021 12:58:38 -0000`
+
+The `apex_containers` package was released.
+
+Version of package(s) in repository `apex_containers`:
+
+- upstream repository: https://gitlab.com/ApexAI/apex_containers.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `0.0.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.3`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.20.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## apex_containers (foxy) - 0.0.3-1
 
 The packages in the `apex_containers` repository were released into the `foxy` distro by running `/usr/bin/bloom-release --ros-distro foxy --track foxy apex_containers` on `Thu, 03 Sep 2020 16:54:52 -0000`
