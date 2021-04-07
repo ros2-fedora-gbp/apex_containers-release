@@ -41,7 +41,7 @@ using Types = ::testing::Types<
   std::array<char, 1024>,
   std::array<char, 2048>
 >;
-TYPED_TEST_CASE(SharedPtr, Types);
+TYPED_TEST_SUITE(SharedPtr, Types);
 
 TYPED_TEST(SharedPtr, AllocTest)
 {
