@@ -122,4 +122,5 @@ tracks:
     ros_distro: rolling
     vcs_type: git
     vcs_uri: https://gitlab.com/ApexAI/apex_containers.git
-    version: :{auto}
+    version: 0.0.4
+    version_saved: :{auto}
