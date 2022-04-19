@@ -1,0 +1,12 @@
+Source: ros-humble-apex-containers
+Section: misc
+Priority: optional
+Maintainer: Apex.AI, Inc. <opensource@apex.ai>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-ament-cmake-auto, ros-humble-ament-lint-auto <!nocheck>, ros-humble-ament-lint-common <!nocheck>, ros-humble-apex-test-tools <!nocheck>, ros-humble-foonathan-memory-vendor, ros-humble-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-humble-apex-containers
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-foonathan-memory-vendor, ros-humble-ros-workspace
+Description: Containers
