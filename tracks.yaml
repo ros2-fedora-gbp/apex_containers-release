@@ -122,7 +122,8 @@ tracks:
     ros_distro: humble
     vcs_type: git
     vcs_uri: https://gitlab.com/ApexAI/apex_containers.git
-    version: :{auto}
+    version: 0.0.4
+    version_saved: :{auto}
   rolling:
     actions:
     - bloom-export-upstream :{vcs_local_uri} :{vcs_type} --tag :{release_tag} --display-uri
